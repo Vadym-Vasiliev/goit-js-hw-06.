@@ -27,3 +27,13 @@ Elements: ${number}`);
 
 // Category: Technologies
 // Elements: 5
+
+// const listLiRef = document.querySelectorAll(".item");
+
+// listLiRef.forEach((item) => {
+//   console.log(
+//     `Category: ${item.querySelector("h2").textContent} \nElements: ${
+//       item.querySelectorAll("li").length
+//     }`
+//   );
+// });
