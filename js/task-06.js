@@ -13,6 +13,20 @@
 const validationInputRef = document.querySelector("#validation-input");
 
 function validateInput(e) {
-  console.log("target :>> ", e.target.dataset.length);
+  const t = e.target;
+  const length = Number(t.dataset.length);
+
+  if (length === t.value.trim().length) {
+    return updateClassElement(t, "valid", "invalid");
+  }
+  updateClassElement(t, "invalid", "valid");
 }
+
+function updateClassElement(element, add, remove) {
+  element.classList.add(add);
+  element.classList.remove(remove);
+}
+
 validationInputRef.addEventListener("blur", validateInput);
+
+//замість dataset можна використовувати getAttribute()
