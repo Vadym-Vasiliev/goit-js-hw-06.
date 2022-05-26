@@ -10,23 +10,37 @@
 // Если введено подходящее количество символов, то border инпута становится зелёным, если неправильное - красным.
 // Для добавления стилей, используй CSS-классы valid и invalid, которые мы уже добавили в исходные файлы задания.
 
-const validationInputRef = document.querySelector("#validation-input");
+const validationInputEl = document.querySelector("#validation-input");
 
-function validateInput(e) {
-  const t = e.target;
-  const length = Number(t.dataset.length);
+function validateInput(event) {
+  const update = event.target;
+  const length = Number(update.dataset.length);
 
-  if (length === t.value.trim().length) {
-    return updateClassElement(t, "valid", "invalid");
-  }
-  updateClassElement(t, "invalid", "valid");
+  length === update.value.trim().length
+    ? update.classList.add("valid")
+    : update.classList.add("invalid");
 }
 
-function updateClassElement(element, add, remove) {
-  element.classList.add(add);
-  element.classList.remove(remove);
-}
+validationInputEl.addEventListener("blur", validateInput);
 
-validationInputRef.addEventListener("blur", validateInput);
+//================
+// const validationInputEl = document.querySelector("#validation-input");
+
+// function validateInput(event) {
+//   const update = event.target;
+//   const length = Number(update.dataset.length); // кількість знаків
+
+//   if (length === update.value.trim().length) {
+//     return updateClassElement(update, "valid", "invalid");
+//   }
+//   updateClassElement(update, "invalid", "valid");
+// }
+
+// function updateClassElement(element, add, remove) {
+//   element.classList.add(add);
+//   element.classList.remove(remove);
+// }
+
+// validationInputEl.addEventListener("blur", validateInput);
 
 //замість dataset можна використовувати getAttribute()

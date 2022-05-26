@@ -7,8 +7,7 @@ const ingredients = [
   "Condiments",
 ];
 
-const ingredientsRef = document.querySelector("#ingredients");
-console.log(ingredientsRef);
+const ingredientsEl = document.querySelector("#ingredients");
 
 const markup = ingredients.map((item) => {
   const li = document.createElement("li");
@@ -17,8 +16,9 @@ const markup = ingredients.map((item) => {
   return li;
 });
 
-ingredientsRef.append(...markup);
+ingredientsEl.append(...markup);
 console.log(markup);
+
 // Напиши скрипт, который для каждого элемента массива ingredients:
 
 // Создаст отдельный элемент <li>. Обзательно используй метод document.createElement().

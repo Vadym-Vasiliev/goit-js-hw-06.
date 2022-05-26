@@ -1,6 +1,6 @@
-const categoriList = document.querySelector("#categories");
-const categoriItem = categoriList.children.length;
-const message = `Number of categories: ${categoriItem}`;
+const categoriListEl = document.querySelector("#categories");
+const categoriItemEl = categoriListEl.children.length;
+const message = `Number of categories: ${categoriItemEl}`;
 console.log(message);
 
 const items = document.querySelectorAll(".item");

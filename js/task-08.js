@@ -4,27 +4,50 @@
 // Если пользователь заполнил все поля и отправил форму, собери значения полей в обьект, где имя поля будет именем свойства, а значение поля - значением свойства. Для доступа к элементам формы используй свойство elements.
 // Выведи обьект с введенными данными в консоль и очисти значения полей формы методом reset.
 
-const loginFormRef = document.querySelector(".login-form");
+const loginFormEl = document.querySelector(".login-form");
 
-function getDataForm(e) {
-  e.preventDefault();
+function fooForm(event) {
+  event.preventDefault();
 
-  const { email, password } = e.target.elements;
+  const { email, password } = event.target.elements;
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
 
-  if (!emailValue || !passwordValue) {
-    return alert("Треба заповнити всі поля");
+  if (emailValue === "" || passwordValue === "") {
+    return alert("Заповніть поле форми!");
   }
-  const data = {
+  const object = {
     [email.name]: emailValue,
     [password.name]: passwordValue,
   };
-  console.log(data);
-  e.currentTarget.reset();
+
+  event.currentTarget.reset();
 }
 
-loginFormRef.addEventListener("submit", getDataForm);
+loginFormEl.addEventListener("submit", fooForm);
+
+//=========
+// const loginFormRef = document.querySelector(".login-form");
+
+// function getDataForm(e) {
+//   e.preventDefault();
+
+//   const { email, password } = e.target.elements;
+//   const emailValue = email.value.trim();
+//   const passwordValue = password.value.trim();
+
+//   if (!emailValue || !passwordValue) {
+//     return alert("Треба заповнити всі поля");
+//   }
+// const data = {
+//   [email.name]: emailValue,
+//   [password.name]: passwordValue,
+// };
+//   console.log(data);
+//   e.currentTarget.reset();
+// }
+
+// loginFormRef.addEventListener("submit", getDataForm);
 
 //за допомогою document.forms отримуємо доступ до форми
 

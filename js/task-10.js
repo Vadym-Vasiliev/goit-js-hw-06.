@@ -63,3 +63,5 @@ function updateMarkup(markup = "") {
 
 createRef.addEventListener("click", getValue);
 destroyRef.addEventListener("click", clearMarkup);
+
+// залишилось додати класи в HTML

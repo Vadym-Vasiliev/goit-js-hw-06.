@@ -1,13 +1,21 @@
-// Напиши скрипт который, при наборе текста в инпуте input#name-input (событие input), подставляет его текущее значение в span#name-output. Если инпут пустой, в спане должна отображаться строка "Anonymous".
+// // Напиши скрипт который, при наборе текста в инпуте input#name-input (событие input), подставляет его текущее значение в span#name-output. Если инпут пустой, в спане должна отображаться строка "Anonymous".
 
-const nameInputRef = document.querySelector("#name-input");
-const nameOutputRef = document.querySelector("#name-output");
-console.log("object :>> ", nameInputRef, nameOutputRef);
+const textInputEl = document.querySelector("#name-input");
+const outputEl = document.querySelector("#name-output");
 
-function updateTextOutput(e) {
-  const value = e.target.value.trim();
+textInputEl.addEventListener("input", (event) => {
+  outputEl.textContent = event.currentTarget.value.trim() || "Anonymous";
+});
 
-  nameOutputRef.textContent = value ? value : "Anonymous";
-}
+// ============
 
-nameInputRef.addEventListener("input", updateTextOutput);
+// const inputEl = document.querySelector("#name-input");
+// const outputEl = document.querySelector("#name-output");
+
+// function updateText(event) {
+//   const value = event.target.value.trim();
+
+//   outputEl.textContent = value ? value : "Anonymous";
+// }
+
+// inputEl.addEventListener("input", updateText);

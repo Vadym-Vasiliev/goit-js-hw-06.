@@ -6,26 +6,43 @@
 // </div>
 // Для генерации случайного цвета используй функцию getRandomHexColor.
 
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215)
-//     .toString(16)
-//     .padStart(6, 0)}`;
-// }
-
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const bodyRef = document.body;
-const colorRef = document.querySelector(".color");
-const changeColorRef = document.querySelector(".change-color");
-console.log(bodyRef, colorRef, changeColorRef);
+const changeColor = document.querySelector(".change-color");
+const spanColor = document.querySelector(".color");
+const bodyColor = document.body;
 
-function updateColor() {
+changeColor.addEventListener("click", () => {
   const color = getRandomHexColor();
 
-  bodyRef.style.background = color;
-  colorRef.textContent = color;
-}
+  bodyColor.style.background = color;
+  spanColor.textContent = color;
+});
 
-changeColorRef.addEventListener("click", updateColor);
+//=========
+
+// // function getRandomHexColor() {
+// //   return `#${Math.floor(Math.random() * 16777215)
+// //     .toString(16)
+// //     .padStart(6, 0)}`;
+// // }
+
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+
+// const bodyRef = document.body;
+// const colorRef = document.querySelector(".color");
+// const changeColorRef = document.querySelector(".change-color");
+// console.log(bodyRef, colorRef, changeColorRef);
+
+// function updateColor() {
+//   const color = getRandomHexColor();
+
+//   bodyRef.style.background = color;
+//   colorRef.textContent = color;
+// }
+
+// changeColorRef.addEventListener("click", updateColor);
