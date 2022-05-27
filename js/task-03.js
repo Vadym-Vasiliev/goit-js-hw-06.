@@ -16,7 +16,7 @@ const images = [
 const makeGallery = ({ url, alt }) => {
   return `
   <li>
-    <img class="picture" src="${url}"  alt=${alt} width = 300 height = 180>  </img>
+    <img  src="${url}"  alt=${alt} width = 300 height = 180>  </img>
     </li>
  `;
 };
