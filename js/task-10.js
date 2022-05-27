@@ -22,34 +22,21 @@
 // }
 // Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 
-// const inputEl = document.querySelector("input");
-// const createButton = document.querySelector("[data-create]");
-// const destroyButton = document.querySelector("[data-destroy]");
-// const boxesEl = document.querySelector("#boxes");
-
+//============
 const createEl = document.querySelector("[data-create]");
 const destroyEl = document.querySelector("[data-destroy]");
 const inputEl = document.querySelector("input");
 const boxesEl = document.querySelector("#boxes");
 
+function creatValue(event) {
+  event.preventDefault();
+
+  const value = Number(inputEl.value);
+  createMarkup(value);
+}
+
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-
-function getValue() {
-  const value = input.value;
-
-  if (!value) return;
-  creatBoxes(Number(value));
-}
-
-function creatBoxes(amount) {
-  const markup = createMarkup(amount);
-  updateMarkup(markup);
-}
-
-function updateMarkup(markup = "") {
-  boxesEl.innerHTML = markup;
 }
 
 function createMarkup(amount) {
@@ -57,42 +44,23 @@ function createMarkup(amount) {
   let markup = "";
 
   for (let i = 0; i < amount; i += 1) {
-    markup += `<div class="item" style="width: ${size}px; height: ${size}px; background: ${getRandomHexColor}"></div>`;
     size += 10;
+    markup += `<div class="item" style="width: ${size}px; height: ${size}px; background: ${getRandomHexColor()}"></div>`;
   }
-
+  updateMarkup(markup);
   return markup;
 }
 
-function clearMarkup() {
-  updateMarkup();
-  inputEl.value = "";
+function updateMarkup(markup) {
+  boxesEl.innerHTML = markup;
 }
 
-createButton.addEventListener("click", getValue);
-destroyButton.addEventListener("click", destroyBoxer);
-
-//============
-// const createRef = document.querySelector("[data-create]");
-// const destroyRef = document.querySelector("[data-destroy]");
-// const inputRef = document.querySelector("input");
-// const boxesRef = document.querySelector("#boxes");
-
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-// }
-
-// function createMarkup(amount) {
-//   let size = 30;
-//   let markup = "";
-
-//   for (let i = 0; i < amount; i += 1) {
-//     markup += `<div class="item" style="width: ${size}px; height: ${size}px; background: ${getRandomHexColor}"></div>`;
-//     size += 10;
-//   }
-
-//   return markup;
-// }
+function clearMarkup() {
+  boxesEl.innerHTML = "";
+  inputEl.value = "";
+}
+createEl.addEventListener("click", creatValue);
+destroyEl.addEventListener("click", clearMarkup);
 
 // function clearMarkup() {
 //   updateMarkup();
